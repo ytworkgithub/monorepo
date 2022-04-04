@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@monorepo/shared-interface": ["libs/shared-interface/src/index.ts"],
+      "@monorepo/shared-logger": ["libs/shared-logger/src/index.ts"],
+      "@monorepo/shared-ui-items": ["libs/shared-ui-items/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

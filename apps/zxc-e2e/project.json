@@ -1,0 +1,28 @@
+{
+  "root": "apps/zxc-e2e",
+  "sourceRoot": "apps/zxc-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/zxc-e2e/cypress.json",
+        "devServerTarget": "zxc:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "zxc:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/zxc-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["zxc"]
+}

@@ -1,4 +1,12 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "asd": "apps/asd",
+    "asd-e2e": "apps/asd-e2e",
+    "shared-interface": "libs/shared-interface",
+    "shared-logger": "libs/shared-logger",
+    "shared-ui-items": "libs/shared-ui-items",
+    "zxc": "apps/zxc",
+    "zxc-e2e": "apps/zxc-e2e"
+  }
 }

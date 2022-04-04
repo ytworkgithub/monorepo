@@ -1,0 +1,88 @@
+{
+  "projectType": "application",
+  "root": "apps/zxc",
+  "sourceRoot": "apps/zxc/src",
+  "prefix": "monorepo",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/zxc",
+        "index": "apps/zxc/src/index.html",
+        "main": "apps/zxc/src/main.ts",
+        "polyfills": "apps/zxc/src/polyfills.ts",
+        "tsConfig": "apps/zxc/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/zxc/src/favicon.ico", "apps/zxc/src/assets"],
+        "styles": ["apps/zxc/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/zxc/src/environments/environment.ts",
+              "with": "apps/zxc/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "zxc:build:production"
+        },
+        "development": {
+          "browserTarget": "zxc:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "zxc:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/zxc/src/**/*.ts", "apps/zxc/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/zxc"],
+      "options": {
+        "jestConfig": "apps/zxc/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

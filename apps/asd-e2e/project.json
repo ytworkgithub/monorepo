@@ -1,0 +1,28 @@
+{
+  "root": "apps/asd-e2e",
+  "sourceRoot": "apps/asd-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/asd-e2e/cypress.json",
+        "devServerTarget": "asd:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "asd:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/asd-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["asd"]
+}
