@@ -5,11 +5,14 @@ import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { RouterModule } from '@angular/router';
 
+import { SharedUiItemsModule } from '@monorepo/shared-ui-items';
+
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
+    SharedUiItemsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
